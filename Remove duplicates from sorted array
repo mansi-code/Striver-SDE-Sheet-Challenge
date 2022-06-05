@@ -1,0 +1,19 @@
+//https://www.codingninjas.com/codestudio/problems/remove-duplicates-from-sorted-array_1102307?topList=striver-sde-sheet-problems
+int removeDuplicates(vector<int> &arr, int n) {
+	// Write your code here.
+    if(n==1|| n==0)
+        return n;
+    int current=0, next=1;
+   while(current<n-1 && next<n){
+        if(arr[current]!=arr[next])
+        {
+            arr[current+1]=arr[next];
+            current++;
+        }
+        next++;
+    }
+    for(int i=current+1; i<n; i++){
+        arr.pop_back();
+    }
+    return arr.size();
+}
